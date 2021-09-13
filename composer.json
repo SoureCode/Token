@@ -1,0 +1,29 @@
+{
+    "name": "sourecode/token",
+    "type": "library",
+    "description": "Token related interfaces and classes to use for verification or similar intents.",
+    "keywords": [
+        "token"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jason Schilling",
+            "email": "jason@sourecode.dev"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "symfony/uid": "^5.3 || ^6.0",
+        "doctrine/common": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SoureCode\\Component\\Token\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "minimum-stability": "dev"
+}
