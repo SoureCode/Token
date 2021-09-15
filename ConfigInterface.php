@@ -20,6 +20,11 @@ interface ConfigInterface
 {
     public function has(string $type): bool;
 
+    /**
+     * @param string $type
+     *
+     * @return array{expiration: DateInterval}
+     */
     #[ArrayShape(['expiration' => DateInterval::class])]
     public function get(string $type): array;
 }

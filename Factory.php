@@ -25,6 +25,9 @@ class Factory implements FactoryInterface
      */
     protected string $tokenClass;
 
+    /**
+     * @param class-string<TokenInterface> $tokenClass
+     */
     public function __construct(ConfigInterface $config, string $tokenClass)
     {
         $this->config = $config;
@@ -37,9 +40,6 @@ class Factory implements FactoryInterface
             throw new InvalidArgumentException(sprintf('Missing token type "%s"', $type));
         }
 
-        /**
-         * @var TokenInterface $token
-         */
         $token = new ($this->tokenClass)();
         $token->setType($type);
         $token->setData($data);

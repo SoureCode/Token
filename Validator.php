@@ -32,9 +32,16 @@ class Validator implements ValidatorInterface
     public function validate(TokenInterface $token): bool
     {
         $type = $token->getType();
+
+        if (null === $type) {
+            throw new InvalidArgumentException('Missing "Type" in token.');
+        }
+
         $config = $this->config->get($type);
 
-        $expireAt = $this->getExpiresAt($token, $config['expiration']);
+        $foo = $config['expiration'];
+
+        $expireAt = $this->getExpiresAt($token, $foo);
         $now = new DateTime('now');
 
         return $expireAt > $now;

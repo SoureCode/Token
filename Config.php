@@ -20,10 +20,13 @@ use SoureCode\Component\Token\Exception\RuntimeException;
  */
 class Config implements ConfigInterface
 {
+    /**
+     * @var array<string, array{expiration: DateInterval}>
+     */
     protected array $configuration;
 
     /**
-     * @param list<array{expiration: string}> $configuration
+     * @param array<string, array{expiration: string}> $configuration
      *
      * @throws Exception
      */
@@ -36,6 +39,9 @@ class Config implements ConfigInterface
         }, $configuration);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     #[ArrayShape(['expiration' => DateInterval::class])]
     public function get(string $type): array
     {
