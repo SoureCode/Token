@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
 use SoureCode\Component\Token\Config;
 use SoureCode\Component\Token\ConfigInterface;
 use SoureCode\Component\Token\Exception\InvalidArgumentException;
-use SoureCode\Component\Token\Exception\RuntimeException;
 use SoureCode\Component\Token\Model\Token;
 use SoureCode\Component\Token\Validator;
 use SoureCode\Component\Token\ValidatorInterface;
@@ -25,7 +24,6 @@ use SoureCode\Component\Token\ValidatorInterface;
  */
 class ValidatorTest extends TestCase
 {
-
     protected ConfigInterface $config;
 
     protected ValidatorInterface $validator;
@@ -70,5 +68,4 @@ class ValidatorTest extends TestCase
 
         $this->validator = new Validator($this->config);
     }
-
 }

@@ -20,7 +20,6 @@ use SoureCode\Component\Token\Exception\RuntimeException;
  */
 class Config implements ConfigInterface
 {
-
     protected array $configuration;
 
     /**
@@ -49,6 +48,6 @@ class Config implements ConfigInterface
 
     public function has(string $type): bool
     {
-        return array_key_exists($type, $this->configuration);
+        return \array_key_exists($type, $this->configuration);
     }
 }

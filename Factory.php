@@ -18,11 +18,10 @@ use SoureCode\Component\Token\Model\TokenInterface;
  */
 class Factory implements FactoryInterface
 {
-
     protected ConfigInterface $config;
 
     /**
-     * @var class-string<TokenInterface> $tokenClass
+     * @var class-string<TokenInterface>
      */
     protected string $tokenClass;
 

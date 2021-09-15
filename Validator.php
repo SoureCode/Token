@@ -22,7 +22,6 @@ use SoureCode\Component\Token\Model\TokenInterface;
  */
 class Validator implements ValidatorInterface
 {
-
     protected ConfigInterface $config;
 
     public function __construct(ConfigInterface $config)

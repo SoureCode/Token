@@ -20,7 +20,6 @@ use SoureCode\Component\Token\Exception\RuntimeException;
  */
 class ConfigTest extends TestCase
 {
-
     protected ConfigInterface $config;
 
     public function testHas(): void
@@ -43,7 +42,7 @@ class ConfigTest extends TestCase
     {
         // Assert
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessageMatches("/Missing token configuration for type/");
+        $this->expectExceptionMessageMatches('/Missing token configuration for type/');
 
         // Act
         $this->config->get('lorem');
@@ -56,5 +55,4 @@ class ConfigTest extends TestCase
             'bar' => ['expiration' => 'PT4H'],
         ]);
     }
-
 }

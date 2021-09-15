@@ -17,7 +17,5 @@ use SoureCode\Component\Token\Model\TokenInterface;
  */
 interface FactoryInterface
 {
-
     public function create(string $type, string $data = null): TokenInterface;
-
 }

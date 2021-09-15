@@ -17,7 +17,5 @@ use SoureCode\Component\Token\Model\TokenInterface;
  */
 interface ValidatorInterface
 {
-
     public function validate(TokenInterface $token): bool;
-
 }

@@ -23,7 +23,6 @@ use SoureCode\Component\Token\Model\Token;
  */
 class FactoryTest extends TestCase
 {
-
     protected ConfigInterface $config;
 
     protected FactoryInterface $factory;
@@ -43,7 +42,7 @@ class FactoryTest extends TestCase
     {
         // Assert
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageMatches("/Missing token type/");
+        $this->expectExceptionMessageMatches('/Missing token type/');
 
         // Act
         $token = $this->factory->create('lorem', 'knot');
@@ -57,5 +56,4 @@ class FactoryTest extends TestCase
 
         $this->factory = new Factory($this->config, Token::class);
     }
-
 }

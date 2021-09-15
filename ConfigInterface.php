@@ -18,10 +18,8 @@ use JetBrains\PhpStorm\ArrayShape;
  */
 interface ConfigInterface
 {
-
     public function has(string $type): bool;
 
     #[ArrayShape(['expiration' => DateInterval::class])]
     public function get(string $type): array;
-
 }
