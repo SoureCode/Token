@@ -11,9 +11,9 @@
 namespace SoureCode\Component\Token\Tests;
 
 use PHPUnit\Framework\TestCase;
+use SoureCode\Component\Token\Exception\RuntimeException;
 use SoureCode\Component\Token\TokenConfig;
 use SoureCode\Component\Token\TokenConfigInterface;
-use SoureCode\Component\Token\Exception\RuntimeException;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>

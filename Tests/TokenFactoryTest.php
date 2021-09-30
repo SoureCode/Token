@@ -11,12 +11,12 @@
 namespace SoureCode\Component\Token\Tests;
 
 use PHPUnit\Framework\TestCase;
+use SoureCode\Component\Token\Exception\InvalidArgumentException;
+use SoureCode\Component\Token\Model\Token;
 use SoureCode\Component\Token\TokenConfig;
 use SoureCode\Component\Token\TokenConfigInterface;
-use SoureCode\Component\Token\Exception\InvalidArgumentException;
 use SoureCode\Component\Token\TokenFactory;
 use SoureCode\Component\Token\TokenFactoryInterface;
-use SoureCode\Component\Token\Model\Token;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>

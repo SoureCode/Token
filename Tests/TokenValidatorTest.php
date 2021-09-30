@@ -12,10 +12,10 @@ namespace SoureCode\Component\Token\Tests;
 
 use DateTime;
 use PHPUnit\Framework\TestCase;
-use SoureCode\Component\Token\TokenConfig;
-use SoureCode\Component\Token\TokenConfigInterface;
 use SoureCode\Component\Token\Exception\InvalidArgumentException;
 use SoureCode\Component\Token\Model\Token;
+use SoureCode\Component\Token\TokenConfig;
+use SoureCode\Component\Token\TokenConfigInterface;
 use SoureCode\Component\Token\TokenValidator;
 use SoureCode\Component\Token\TokenValidatorInterface;
 
