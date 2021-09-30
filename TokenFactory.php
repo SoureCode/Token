@@ -16,9 +16,9 @@ use SoureCode\Component\Token\Model\TokenInterface;
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-class Factory implements FactoryInterface
+class TokenFactory implements TokenFactoryInterface
 {
-    protected ConfigInterface $config;
+    protected TokenConfigInterface $config;
 
     /**
      * @var class-string<TokenInterface>
@@ -28,7 +28,7 @@ class Factory implements FactoryInterface
     /**
      * @param class-string<TokenInterface> $tokenClass
      */
-    public function __construct(ConfigInterface $config, string $tokenClass)
+    public function __construct(TokenConfigInterface $config, string $tokenClass)
     {
         $this->config = $config;
         $this->tokenClass = $tokenClass;

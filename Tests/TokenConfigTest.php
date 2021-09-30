@@ -11,16 +11,16 @@
 namespace SoureCode\Component\Token\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SoureCode\Component\Token\Config;
-use SoureCode\Component\Token\ConfigInterface;
+use SoureCode\Component\Token\TokenConfig;
+use SoureCode\Component\Token\TokenConfigInterface;
 use SoureCode\Component\Token\Exception\RuntimeException;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-class ConfigTest extends TestCase
+class TokenConfigTest extends TestCase
 {
-    protected ConfigInterface $config;
+    protected TokenConfigInterface $config;
 
     public function testHas(): void
     {
@@ -50,7 +50,7 @@ class ConfigTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->config = new Config([
+        $this->config = new TokenConfig([
             'foo' => ['expiration' => 'PT2H'],
             'bar' => ['expiration' => 'PT4H'],
         ]);

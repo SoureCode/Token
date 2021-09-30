@@ -15,7 +15,7 @@ use SoureCode\Component\Token\Model\TokenInterface;
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-interface ValidatorInterface
+interface TokenFactoryInterface
 {
-    public function validate(TokenInterface $token): bool;
+    public function create(string $type, string $data = null): TokenInterface;
 }

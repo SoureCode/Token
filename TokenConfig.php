@@ -18,7 +18,7 @@ use SoureCode\Component\Token\Exception\RuntimeException;
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-class Config implements ConfigInterface
+class TokenConfig implements TokenConfigInterface
 {
     /**
      * @var array<string, array{expiration: DateInterval}>

@@ -11,21 +11,21 @@
 namespace SoureCode\Component\Token\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SoureCode\Component\Token\Config;
-use SoureCode\Component\Token\ConfigInterface;
+use SoureCode\Component\Token\TokenConfig;
+use SoureCode\Component\Token\TokenConfigInterface;
 use SoureCode\Component\Token\Exception\InvalidArgumentException;
-use SoureCode\Component\Token\Factory;
-use SoureCode\Component\Token\FactoryInterface;
+use SoureCode\Component\Token\TokenFactory;
+use SoureCode\Component\Token\TokenFactoryInterface;
 use SoureCode\Component\Token\Model\Token;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-class FactoryTest extends TestCase
+class TokenFactoryTest extends TestCase
 {
-    protected ConfigInterface $config;
+    protected TokenConfigInterface $config;
 
-    protected FactoryInterface $factory;
+    protected TokenFactoryInterface $factory;
 
     public function testCreate(): void
     {
@@ -50,10 +50,10 @@ class FactoryTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->config = new Config([
+        $this->config = new TokenConfig([
             'foo' => ['expiration' => 'PT2H'],
         ]);
 
-        $this->factory = new Factory($this->config, Token::class);
+        $this->factory = new TokenFactory($this->config, Token::class);
     }
 }

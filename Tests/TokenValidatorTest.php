@@ -12,21 +12,21 @@ namespace SoureCode\Component\Token\Tests;
 
 use DateTime;
 use PHPUnit\Framework\TestCase;
-use SoureCode\Component\Token\Config;
-use SoureCode\Component\Token\ConfigInterface;
+use SoureCode\Component\Token\TokenConfig;
+use SoureCode\Component\Token\TokenConfigInterface;
 use SoureCode\Component\Token\Exception\InvalidArgumentException;
 use SoureCode\Component\Token\Model\Token;
-use SoureCode\Component\Token\Validator;
-use SoureCode\Component\Token\ValidatorInterface;
+use SoureCode\Component\Token\TokenValidator;
+use SoureCode\Component\Token\TokenValidatorInterface;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-class ValidatorTest extends TestCase
+class TokenValidatorTest extends TestCase
 {
-    protected ConfigInterface $config;
+    protected TokenConfigInterface $config;
 
-    protected ValidatorInterface $validator;
+    protected TokenValidatorInterface $validator;
 
     public function testValidate(): void
     {
@@ -61,11 +61,11 @@ class ValidatorTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->config = new Config([
+        $this->config = new TokenConfig([
             'foo' => ['expiration' => 'PT2H'],
             'bar' => ['expiration' => 'PT4H'],
         ]);
 
-        $this->validator = new Validator($this->config);
+        $this->validator = new TokenValidator($this->config);
     }
 }

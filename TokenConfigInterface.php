@@ -10,12 +10,21 @@
 
 namespace SoureCode\Component\Token;
 
-use SoureCode\Component\Token\Model\TokenInterface;
+use DateInterval;
+use JetBrains\PhpStorm\ArrayShape;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-interface FactoryInterface
+interface TokenConfigInterface
 {
-    public function create(string $type, string $data = null): TokenInterface;
+    public function has(string $type): bool;
+
+    /**
+     * @param string $type
+     *
+     * @return array{expiration: DateInterval}
+     */
+    #[ArrayShape(['expiration' => DateInterval::class])]
+    public function get(string $type): array;
 }

@@ -20,11 +20,11 @@ use SoureCode\Component\Token\Model\TokenInterface;
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
-class Validator implements ValidatorInterface
+class TokenValidator implements TokenValidatorInterface
 {
-    protected ConfigInterface $config;
+    protected TokenConfigInterface $config;
 
-    public function __construct(ConfigInterface $config)
+    public function __construct(TokenConfigInterface $config)
     {
         $this->config = $config;
     }
