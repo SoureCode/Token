@@ -18,6 +18,11 @@ class Token implements TokenInterface
 
     protected ?string $data = null;
 
+    public function __construct(?Ulid $id = null)
+    {
+        $this->id = $id;
+    }
+
     public function getId(): ?Ulid
     {
         return $this->id;

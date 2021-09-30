@@ -11,11 +11,12 @@
 namespace SoureCode\Component\Token;
 
 use SoureCode\Component\Token\Model\TokenInterface;
+use Symfony\Component\Uid\Ulid;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
 interface TokenFactoryInterface
 {
-    public function create(string $type, string $data = null): TokenInterface;
+    public function create(string $type, string $data = null, ?Ulid $id = null): TokenInterface;
 }
