@@ -35,14 +35,10 @@ class TokenFactory implements TokenFactoryInterface
         $this->tokenClass = $tokenClass;
     }
 
-    public function create(string $type, string $data = null, ?Ulid $id = null): TokenInterface
+    public function create(Ulid $id, string $type, string $data = null): TokenInterface
     {
         if (!$this->config->has($type)) {
             throw new InvalidArgumentException(sprintf('Missing token type "%s"', $type));
-        }
-
-        if (null === $id) {
-            $id = new Ulid();
         }
 
         $token = new ($this->tokenClass)($id);

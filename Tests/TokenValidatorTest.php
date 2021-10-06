@@ -18,6 +18,7 @@ use SoureCode\Component\Token\TokenConfig;
 use SoureCode\Component\Token\TokenConfigInterface;
 use SoureCode\Component\Token\TokenValidator;
 use SoureCode\Component\Token\TokenValidatorInterface;
+use Symfony\Component\Uid\Ulid;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
@@ -33,7 +34,7 @@ class TokenValidatorTest extends TestCase
         // Arrange
         $offset = 60 /* seconds */ * 60 /* minutes */ * 3 /* hours */;
 
-        $token = new Token();
+        $token = new Token(new Ulid());
         $token->setCreatedAt(new DateTime('@'.time() - $offset));
         $token->setType('bar');
 
@@ -52,7 +53,7 @@ class TokenValidatorTest extends TestCase
         $this->expectExceptionMessageMatches('/Missing "CreatedAt" timestamp in token/');
 
         // Arrange
-        $token = new Token();
+        $token = new Token(new Ulid());
         $token->setType('bar');
 
         // Act

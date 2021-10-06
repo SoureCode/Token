@@ -18,5 +18,5 @@ use Symfony\Component\Uid\Ulid;
  */
 interface TokenFactoryInterface
 {
-    public function create(string $type, string $data = null, ?Ulid $id = null): TokenInterface;
+    public function create(Ulid $id, string $type, string $data = null): TokenInterface;
 }

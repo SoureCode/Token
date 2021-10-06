@@ -17,6 +17,7 @@ use SoureCode\Component\Token\TokenConfig;
 use SoureCode\Component\Token\TokenConfigInterface;
 use SoureCode\Component\Token\TokenFactory;
 use SoureCode\Component\Token\TokenFactoryInterface;
+use Symfony\Component\Uid\Ulid;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
@@ -30,7 +31,7 @@ class TokenFactoryTest extends TestCase
     public function testCreate(): void
     {
         // Act
-        $token = $this->factory->create('foo', 'knot');
+        $token = $this->factory->create(new Ulid(), 'foo', 'knot');
 
         // Assert
         self::assertInstanceOf(Token::class, $token);
@@ -45,7 +46,7 @@ class TokenFactoryTest extends TestCase
         $this->expectExceptionMessageMatches('/Missing token type/');
 
         // Act
-        $token = $this->factory->create('lorem', 'knot');
+        $token = $this->factory->create(new Ulid(), 'lorem', 'knot');
     }
 
     protected function setUp(): void

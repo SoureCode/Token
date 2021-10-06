@@ -24,23 +24,16 @@ class TokenTest extends TestCase
     {
         // Arrange
         $id = new Ulid();
-        $token = new Token();
 
         // Act and Assert
-        self::assertNull($token->getId());
-
-        $reflectionClass = new ReflectionClass($token);
-        $idProperty = $reflectionClass->getProperty('id');
-        $idProperty->setAccessible(true);
-        $idProperty->setValue($token, $id);
-
+        $token = new Token($id);
         self::assertSame($id->toBase58(), $token->getId()->toBase58());
     }
 
     public function testGetSetType(): void
     {
         // Arrange
-        $token = new Token();
+        $token = new Token(new Ulid());
 
         // Act and Assert
         self::assertNull($token->getType());
@@ -51,7 +44,7 @@ class TokenTest extends TestCase
     public function testGetSetData(): void
     {
         // Arrange
-        $token = new Token();
+        $token = new Token(new Ulid());
 
         // Act and Assert
         self::assertNull($token->getData());
