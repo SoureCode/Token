@@ -11,7 +11,6 @@
 namespace SoureCode\Component\Token\Tests;
 
 use PHPUnit\Framework\TestCase;
-use ReflectionClass;
 use SoureCode\Component\Token\Model\Token;
 use Symfony\Component\Uid\Ulid;
 

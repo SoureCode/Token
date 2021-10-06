@@ -31,5 +31,4 @@ interface TokenConfigInterface
     public function getExpiresAt(TokenInterface $token): DateTimeImmutable;
 
     public function has(string $type): bool;
-
 }
