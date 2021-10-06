@@ -11,15 +11,15 @@
 namespace SoureCode\Component\Token;
 
 use DateInterval;
+use DateTimeImmutable;
 use JetBrains\PhpStorm\ArrayShape;
+use SoureCode\Component\Token\Model\TokenInterface;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
  */
 interface TokenConfigInterface
 {
-    public function has(string $type): bool;
-
     /**
      * @param string $type
      *
@@ -27,4 +27,9 @@ interface TokenConfigInterface
      */
     #[ArrayShape(['expiration' => DateInterval::class])]
     public function get(string $type): array;
+
+    public function getExpiresAt(TokenInterface $token): DateTimeImmutable;
+
+    public function has(string $type): bool;
+
 }

@@ -11,9 +11,14 @@
 namespace SoureCode\Component\Token;
 
 use DateInterval;
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Exception;
 use JetBrains\PhpStorm\ArrayShape;
+use SoureCode\Component\Token\Exception\InvalidArgumentException;
 use SoureCode\Component\Token\Exception\RuntimeException;
+use SoureCode\Component\Token\Model\TokenInterface;
 
 /**
  * @author Jason Schilling <jason@sourecode.dev>
@@ -55,5 +60,52 @@ class TokenConfig implements TokenConfigInterface
     public function has(string $type): bool
     {
         return \array_key_exists($type, $this->configuration);
+    }
+
+    public function getExpiresAt(TokenInterface $token): DateTimeImmutable
+    {
+        $config = $this->get($token->getType());
+        $interval = $config['expiration'];
+        $createdAt = $token->getCreatedAt();
+
+        if (null === $createdAt) {
+            throw new InvalidArgumentException('Missing "CreatedAt" timestamp in token.');
+        }
+
+        $datetime = $this->cloneDateTime($createdAt);
+
+        return $this->cloneDateTimeImmutable($datetime->add($interval));
+    }
+
+    protected function cloneDateTime(DateTimeInterface $datetime): DateTime
+    {
+        $cloned = DateTime::createFromFormat(
+            DateTimeInterface::ATOM,
+            $datetime->format(DateTimeInterface::ATOM)
+        );
+
+        if (!$cloned) {
+            // @codeCoverageIgnoreStart
+            throw new RuntimeException('Could not clone datetime.');
+            // @codeCoverageIgnoreEnd
+        }
+
+        return $cloned;
+    }
+
+    protected function cloneDateTimeImmutable(DateTimeInterface $datetime): DateTimeImmutable
+    {
+        $cloned = DateTimeImmutable::createFromFormat(
+            DateTimeInterface::ATOM,
+            $datetime->format(DateTimeInterface::ATOM)
+        );
+
+        if (!$cloned) {
+            // @codeCoverageIgnoreStart
+            throw new RuntimeException('Could not clone datetime.');
+            // @codeCoverageIgnoreEnd
+        }
+
+        return $cloned;
     }
 }
