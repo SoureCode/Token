@@ -18,4 +18,6 @@ use SoureCode\Component\Token\Model\TokenInterface;
 interface TokenValidatorInterface
 {
     public function validate(TokenInterface $token): bool;
+
+    public function validateType(TokenInterface $token, string $type): bool;
 }

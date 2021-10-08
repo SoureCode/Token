@@ -26,15 +26,22 @@ class TokenValidator implements TokenValidatorInterface
         $this->config = $config;
     }
 
+    public function validateType(TokenInterface $token, string $type): bool
+    {
+        $isType = $token->getType() === $type;
+
+        return $this->validate($token) && $isType;
+    }
+
     public function validate(TokenInterface $token): bool
     {
         if (null === $token->getType()) {
             throw new InvalidArgumentException('Missing "Type" in token.');
         }
 
-        $expireAt = $this->config->getExpiresAt($token);
+        $expiresAt = $this->config->getExpiresAt($token);
         $now = new DateTime('now');
 
-        return $expireAt > $now;
+        return $expiresAt <= $now;
     }
 }
