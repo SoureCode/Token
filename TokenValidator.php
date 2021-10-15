@@ -42,6 +42,6 @@ class TokenValidator implements TokenValidatorInterface
         $expiresAt = $this->config->getExpiresAt($token);
         $now = new DateTime('now');
 
-        return $expiresAt <= $now;
+        return $expiresAt > $now;
     }
 }
