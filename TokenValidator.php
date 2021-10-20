@@ -11,7 +11,6 @@
 namespace SoureCode\Component\Token;
 
 use DateTime;
-use SoureCode\Component\Token\Exception\InvalidArgumentException;
 use SoureCode\Component\Token\Model\TokenInterface;
 
 /**
@@ -35,10 +34,6 @@ class TokenValidator implements TokenValidatorInterface
 
     public function validate(TokenInterface $token): bool
     {
-        if (null === $token->getType()) {
-            throw new InvalidArgumentException('Missing "Type" in token.');
-        }
-
         $expiresAt = $this->config->getExpiresAt($token);
         $now = new DateTime('now');
 

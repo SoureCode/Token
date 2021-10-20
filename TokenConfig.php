@@ -64,7 +64,7 @@ class TokenConfig implements TokenConfigInterface
 
     public function getExpiresAt(TokenInterface $token): DateTimeImmutable
     {
-        $config = $this->get($token->getType());
+        $config = $this->get((string) $token->getType());
         $interval = $config['expiration'];
         $createdAt = $token->getCreatedAt();
 
