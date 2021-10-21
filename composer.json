@@ -2,9 +2,7 @@
     "name": "sourecode/token",
     "type": "library",
     "description": "Token related interfaces and classes to use for verification or similar intents.",
-    "keywords": [
-        "token"
-    ],
+    "keywords": ["token"],
     "license": "MIT",
     "authors": [
         {
@@ -25,6 +23,11 @@
         "exclude-from-classmap": [
             "/Tests/"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
     },
     "minimum-stability": "dev"
 }
