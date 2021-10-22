@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "sourecode/common": "^0.1",
+        "sourecode/common": "dev-master",
         "symfony/uid": "^5.3 || ^6.0",
         "symfony/validator": "^5.3 || ^6.0"
     },
