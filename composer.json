@@ -13,8 +13,8 @@
     "require": {
         "php": "^8.0 || ^8.1",
         "sourecode/common": "dev-master",
-        "symfony/uid": "^5.3 || ^5.4 || ^6.0 || ^6.1",
-        "symfony/validator": "^5.3 || ^5.4 || ^6.0 || ^6.1"
+        "symfony/uid": "^5.3 || ^6.0",
+        "symfony/validator": "^5.3 || ^6.0"
     },
     "autoload": {
         "psr-4": {
